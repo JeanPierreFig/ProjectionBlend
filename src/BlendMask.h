@@ -10,8 +10,6 @@
 #define BLEND_RIGHT 2
 #define BLEND_LEFT 1
 
-
-
 class BlendMask {
 
     

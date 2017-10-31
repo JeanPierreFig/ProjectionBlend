@@ -19,11 +19,10 @@ BlendMask::BlendMask(int alpha,int OfType){
     h = ofGetHeight();
     
     OverlayImage.allocate(h,h,OF_IMAGE_COLOR_ALPHA);
-    
 
-    //This line should is a hack to make it work for now.
+    //This if else is a hack to make it work for now.
     //If blend_Right starts from 0 there will be a black line on screen.
-    //If Blend_left start from 1, there will be small gap of about one pixsl between the blend and the edge of the screen.
+    //If Blend_left starts from 1, there will be a small gap of about one pixel between the blend and the edge of the screen.
     int startY  = 0;
     if (_OfType == BLEND_RIGHT) {
         
@@ -32,7 +31,6 @@ BlendMask::BlendMask(int alpha,int OfType){
     else if (_OfType == BLEND_LEFT){
          startY = 0;
     }
-    
     
 
     for (float y=startY; y< 255; y++) {

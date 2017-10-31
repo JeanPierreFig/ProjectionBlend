@@ -3,11 +3,8 @@
 //--------------------------------------------------------------
 
 
-
-
-
-
 void ofApp::setup(){
+    
     
     
   
@@ -16,12 +13,12 @@ void ofApp::setup(){
      w = ofGetWidth();
      h = ofGetHeight();
     
-     //150 is the _alpha of the blend this can be from 0 to 255
-     blend = BlendMask(150, BLEND_LEFT);
+     //100 is the alpha value of the blend, this can be from 0 to 255.
+     blend = BlendMask(100, BLEND_LEFT);
     
     
-   //Remove comment to add a mask to the right.
-   //blend2  = BlendMask(150,BLEND_RIGHT);
+     //Remove comment to add a mask to the right.
+     //blend2  = BlendMask(100,BLEND_RIGHT);
   
      //Try TestImage.jpg
      img.load("TestImage2.jpg");
@@ -31,7 +28,6 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-
 
 }
 
@@ -49,9 +45,6 @@ void ofApp::draw(){
     
     //Remove comment to add a mask to the right.
     //blend2.Draw();
-    
-
-
     
 }
 
