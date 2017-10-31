@@ -14,9 +14,9 @@ void ofApp::setup(){
      h = ofGetHeight();
     
      //100 is the alpha value of the blend, this can be from 0 to 255.
-     blend = BlendMask(100, BLEND_LEFT);
+     blend = BlendMask(255, BLEND_LEFT);
     
-    
+     
      //Remove comment to add a mask to the right.
      //blend2  = BlendMask(100,BLEND_RIGHT);
   

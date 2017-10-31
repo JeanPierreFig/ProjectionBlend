@@ -18,44 +18,29 @@ BlendMask::BlendMask(int alpha,int OfType){
     w = ofGetWidth();
     h = ofGetHeight();
     
-    OverlayImage.allocate(h,h,OF_IMAGE_COLOR_ALPHA);
-
-    //This if else is a hack to make it work for now.
-    //If blend_Right starts from 0 there will be a black line on screen.
-    //If Blend_left starts from 1, there will be a small gap of about one pixel between the blend and the edge of the screen.
-    int startY  = 0;
-    if (_OfType == BLEND_RIGHT) {
-        
-        startY = 1;
-    }
-    else if (_OfType == BLEND_LEFT){
-         startY = 0;
-    }
+    OverlayImage.allocate(alpha,1,OF_IMAGE_COLOR_ALPHA);
     
 
-    for (float y=startY; y< 255; y++) {
-        for (float x=0; x<h; x++) {
-            
-            
-            switch (_OfType) {
-                case 1:
-                    OverlayImage.setColor(y,x,ofColor(y,y,y,alpha));
-                    break;
-                    
-                case 2:
-                    OverlayImage.setColor(y,x,ofColor(y*-1,y*-1,y*-1,alpha));
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-        }
+    //Generate a simple black gradient from 255 to 0 alpha
+    for (float x=0; x <alpha; x++) {
         
-        
+       OverlayImage.setColor(x,0,ofColor(0,0,0,x));
     }
     
+    //Update the image on the graphics card. after modifying the pixels in memory.
     OverlayImage.update();
+    
+    //Resize the image to fit our screen and (make it 1/6 of the screen) <- Im not sure about this yet.
+    OverlayImage.resize(w/6, h);
+   
+    
+    //If we need to blend_left the image should be mirror.
+    if (_OfType == BLEND_LEFT){
+        
+        OverlayImage.mirror(false, true);
+    }
+    
+    
     
     
 }
@@ -65,22 +50,18 @@ BlendMask::BlendMask(int alpha,int OfType){
 
 void BlendMask::Draw(){
     
-    switch (_OfType) {
-        case 1:
-            OverlayImage.draw(w-w, h-h);
-            break;
-            
-        case 2:
-            OverlayImage.draw(w-255, h-h);
-            break;
-            
-        case 3:
-            printf("type 3");
-            break;
-            
-        default:
-            break;
+    
+    if (_OfType == BLEND_LEFT){
+        
+         OverlayImage.draw(0, 0);
     }
+    else if (_OfType == BLEND_RIGHT){
+        
+         OverlayImage.draw(w/6, h-h);
+    }
+    
+    
+    
     
     
 }
