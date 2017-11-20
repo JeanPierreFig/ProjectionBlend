@@ -6,6 +6,7 @@
 //
 #include "ofMain.h"
 
+#pragma once
 
 #define BLEND_RIGHT 2
 #define BLEND_LEFT 1
@@ -18,7 +19,8 @@ private:
     
     ofImage OverlayImage;
     int _alpha;
-    int _OfType;
+    int _ofType;
+    int _sizeOfGradient;
     int w;
     int h;
     
@@ -26,7 +28,7 @@ private:
 public:
     
     BlendMask() = default;
-    BlendMask(int alpha,int OfType);
+    BlendMask(int alpha,int ofType,int sizeOfGradient);
     
     void  Draw();
     

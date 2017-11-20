@@ -1,7 +1,6 @@
 dependencies: \
   /Users/jeanpierre/of_v0.9.8_osx_release/apps/myApps/ProjectionBlend/src/ofApp.cpp \
-  /Users/jeanpierre/of_v0.9.8_osx_release/apps/myApps/ProjectionBlend/src/ofApp.h \
-  ../../../libs/openFrameworks/ofMain.h \
+  src/ofApp.h ../../../libs/openFrameworks/ofMain.h \
   ../../../libs/openFrameworks/utils/ofConstants.h \
   ../../../libs/glew/include/GL/glew.h \
   ../../../libs/tess2/include/tesselator.h \
@@ -547,9 +546,18 @@ dependencies: \
   ../../../libs/fmodex/include/fmod_memoryinfo.h \
   ../../../libs/fmodex/include/fmod_errors.h \
   ../../../libs/openFrameworks/video/ofVideoGrabber.h \
-  ../../../libs/openFrameworks/video/ofAVFoundationGrabber.h \
+  ../../../libs/openFrameworks/video/ofQTKitGrabber.h \
   ../../../libs/openFrameworks/video/ofVideoPlayer.h \
   ../../../libs/openFrameworks/video/ofAVFoundationPlayer.h \
   ../../../libs/openFrameworks/3d/ofCamera.h \
-  ../../../libs/openFrameworks/3d/ofEasyCam.h \
-  /Users/jeanpierre/of_v0.9.8_osx_release/apps/myApps/ProjectionBlend/src/BlendMask.h
+  ../../../libs/openFrameworks/3d/ofEasyCam.h src/BlendMask.h \
+  src/ofSetting.h \
+  /Users/jeanpierre/of_v0.9.8_osx_release/addons/ofxGui/src/ofxGui.h \
+  ../../../addons/ofxGui/src/ofxToggle.h \
+  ../../../addons/ofxGui/src/ofxBaseGui.h \
+  ../../../addons/ofxGui/src/ofxSlider.h \
+  ../../../addons/ofxGui/src/ofxSliderGroup.h \
+  ../../../addons/ofxGui/src/ofxGuiGroup.h \
+  ../../../addons/ofxGui/src/ofxButton.h \
+  ../../../addons/ofxGui/src/ofxPanel.h \
+  ../../../addons/ofxGui/src/ofxLabel.h

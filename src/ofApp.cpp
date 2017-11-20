@@ -5,103 +5,79 @@
 
 void ofApp::setup(){
     
+
+  
+
+    blendRight = BlendMask(125,BLEND_RIGHT,400);
     
+    firstPlayer.load("pirates.mp4");
+    firstPlayer.play();
     
   
-     ofSetBackgroundColor(255,255,255);
-    
-     w = ofGetWidth();
-     h = ofGetHeight();
-    
-     //100 is the alpha value of the blend, this can be from 0 to 255.
-     blend = BlendMask(255, BLEND_LEFT);
-    
-     
-     //Remove comment to add a mask to the right.
-     //blend2  = BlendMask(100,BLEND_RIGHT);
-  
-     //Try TestImage.jpg
-     img.load("TestImage2.jpg");
+   
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
+    
+    firstPlayer.update();
+    
+    
+    //Check if the silder is moving and then recreate the blend object.
+    //This use about 10 to 20% less CPU if not done this way.
+    if (curentBlendWidth != guiW->sizeWidth || curentBlendColor != guiW->grayAlpha){
+        
+        curentBlendColor = guiW->grayAlpha;
+        curentBlendWidth = guiW->sizeWidth;
+        
+        blendRight = BlendMask(guiW->grayAlpha,BLEND_RIGHT,guiW->sizeWidth);
+        blendLeft = BlendMask(guiW->grayAlpha,BLEND_LEFT,guiW->sizeWidth);
+        
+        
+    }
+    
+    
+
+    
+   
+
 
 }
+
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    //Test Image 
-    img.resize(w, h);
-    img.draw(0,0);
+  
+     firstPlayer.draw(0, 0);
+    
+     //This is the last thing to we need to draw. it need to be on top.
+     blendRight.Draw();
     
     
+}
+
+
+
+
+void ofApp::setupSecondWin(){
     
-    //Call the draw function in the Blend object.
-    blend.Draw();
     
-    //Remove comment to add a mask to the right.
-    //blend2.Draw();
+    blendLeft = blendRight = BlendMask(125,BLEND_LEFT,400);
     
 }
 
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
+void ofApp::drawSecondWin(ofEventArgs & args){
+    
+    
+    firstPlayer.draw(0, 0);
+    
+    
+    //This is the last thing to we need to draw. it need to be on top.
+    blendLeft.Draw();
 
+    
 }
 
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-   
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-    mouseX = x;
-    mouseY = y;
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
