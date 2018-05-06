@@ -54,10 +54,6 @@ int main(){
     
     ofAddListener(secondWindow->events().draw ,mainApp.get(),&ofApp::drawSecondWin);
     
-    
-    
-    
-    
 
     ofRunApp(mainWindow, mainApp);
     ofRunApp(settingsWindow, settingsApp);

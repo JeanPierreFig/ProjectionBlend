@@ -18,6 +18,7 @@ class ofApp : public ofBaseApp{
     
         void setupSecondWin();
         void drawSecondWin(ofEventArgs & args);
+        void ofSetVideoSizeForScreen();
 
 
     

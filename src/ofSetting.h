@@ -11,13 +11,9 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 
-
-
-
 class ofSetting : public ofBaseApp{
     
 public:
-    
     
     void setup();
     void update();
@@ -34,21 +30,12 @@ public:
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
-    
     void updateBlend();
-    
-    
-    
-    
+    void chooseFile();
+
     ofxIntSlider sizeWidth;
     ofxIntSlider grayAlpha;
-    
+    ofxButton chooseButton;
+    ofxLabel fileLable;
     ofxPanel gui;
-    
-    
-    
-  
-    
-    
 };
-

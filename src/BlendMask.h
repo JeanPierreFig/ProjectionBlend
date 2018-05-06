@@ -13,10 +13,7 @@
 
 class BlendMask {
 
-    
 private:
-    
-    
     ofImage OverlayImage;
     int _alpha;
     int _ofType;
@@ -26,17 +23,9 @@ private:
     
     
 public:
-    
     BlendMask() = default;
     BlendMask(int alpha,int ofType,int sizeOfGradient);
-    
     void  Draw();
-    
-    
-  
-    
-    
 
-    
 };
 
