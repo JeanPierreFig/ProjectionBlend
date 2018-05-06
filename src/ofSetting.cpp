@@ -13,18 +13,15 @@
 
 void ofSetting::setup(){
     chooseButton.addListener(this, &ofSetting::chooseFile);
-    
     gui.setup();
     gui.add(sizeWidth.setup("Width", 255, 0, 255));
     gui.add(grayAlpha.setup("Alpha", 125, 0, 255));
     gui.add(chooseButton.setup("Choose File"));
     gui.add(fileLable.setup("","No file selected"));
-    
 }
 
 //--------------------------------------------------------------
 void ofSetting::update(){
-    
 }
 
 //--------------------------------------------------------------
@@ -33,13 +30,12 @@ void ofSetting::draw(){
 }
 
 void ofSetting::updateBlend(){
-    
+
 }
 
 //--------------------------------------------------------------
 void ofSetting::keyPressed(int key){
     
-
 }
 
 void ofSetting::chooseFile() {
@@ -50,6 +46,9 @@ void ofSetting::chooseFile() {
     if (openFileResult.bSuccess){
         
         fileLable.operator=(openFileResult.getName());
+        string path =  openFileResult.getPath();
+        ofNotifyEvent(onVideoPathChosen,path);
+        
         //chooseButton.setup(openFileResult.getName());
         
         //We have a file, check it and process it
@@ -59,7 +58,6 @@ void ofSetting::chooseFile() {
         ofLogVerbose("User hit cancel");
     }
 }
-
 
 //--------------------------------------------------------------
 void ofSetting::keyReleased(int key){

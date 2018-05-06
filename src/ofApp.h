@@ -5,32 +5,21 @@
 #include "BlendMask.h"
 #include "ofSetting.h"
 
-
-
 class ofApp : public ofBaseApp{
 
-	public:
+public:
+    void setup();
+    void update();
+    void draw();
+    void setupSecondWin();
+    void drawSecondWin(ofEventArgs & args);
+    void ofSetVideoSizeForScreen();
+    void playVideoForPath(string & path);
     
-    
-		void setup();
-		void update();
-		void draw();
-    
-        void setupSecondWin();
-        void drawSecondWin(ofEventArgs & args);
-        void ofSetVideoSizeForScreen();
-
-
-    
-        int curentBlendWidth;
-        int curentBlendColor;
-    
-        BlendMask blendRight;
-        BlendMask blendLeft;
-    
-       shared_ptr<ofSetting>  guiW;
-       ofVideoPlayer firstPlayer;
-
-    
-    
+    int curentBlendWidth;
+    int curentBlendColor;
+    BlendMask blendRight;
+    BlendMask blendLeft;
+    shared_ptr<ofSetting>  guiW;
+    ofVideoPlayer firstPlayer;
 };

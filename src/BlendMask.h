@@ -19,13 +19,13 @@ private:
     int _ofType;
     int _sizeOfGradient;
     int w;
-    int h;
     
     
 public:
     BlendMask() = default;
     BlendMask(int alpha,int ofType,int sizeOfGradient);
     void  Draw();
+    int h;
 
 };
 

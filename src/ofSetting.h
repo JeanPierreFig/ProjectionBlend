@@ -32,10 +32,12 @@ public:
     void gotMessage(ofMessage msg);
     void updateBlend();
     void chooseFile();
-
+   // void videoPath(String path);
+    
     ofxIntSlider sizeWidth;
     ofxIntSlider grayAlpha;
     ofxButton chooseButton;
     ofxLabel fileLable;
     ofxPanel gui;
+    ofEvent<string> onVideoPathChosen;
 };

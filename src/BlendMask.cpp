@@ -33,7 +33,6 @@ BlendMask::BlendMask(int alpha,int ofType, int sizeOfGradient){
     
     //If we need to blend_left the image should be mirrored.
     if (ofType == BLEND_LEFT){
-        
         OverlayImage.mirror(false, true);
     }
 }
@@ -41,9 +40,11 @@ BlendMask::BlendMask(int alpha,int ofType, int sizeOfGradient){
 void BlendMask::Draw(){
     
     if (_ofType == BLEND_LEFT){
+         OverlayImage.resize(_sizeOfGradient, ofGetWindowHeight());
          OverlayImage.draw(0, 0);
     }
     else if (_ofType == BLEND_RIGHT){
-         OverlayImage.draw(w-_sizeOfGradient, 0);
+         OverlayImage.resize(_sizeOfGradient, ofGetWindowHeight());
+         OverlayImage.draw(ofGetWindowWidth()-_sizeOfGradient, 0);
     }
 }
